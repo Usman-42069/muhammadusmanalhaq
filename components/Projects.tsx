@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState, useCallback } from 'react'
+import Image from 'next/image'
 
 type Filter = 'all' | 'web' | 'mobile' | 'hpc' | 'ai'
 
@@ -45,12 +46,12 @@ function Lightbox({ images, startIdx, onClose }: {
           </div>
         ) : images[idx]?.endsWith('.mp4') ? (
           <div className="lightbox-video-wrap" style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <video src={images[idx]} controls autoPlay style={{ maxWidth: '100%', maxHeight: '85vh', borderRadius: '8px' }} />
+            <video src={images[idx]} controls autoPlay playsInline preload="auto" style={{ maxWidth: '100%', maxHeight: '85vh', borderRadius: '8px' }} />
           </div>
         ) : (
           <div className="lightbox-img-wrap">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={images[idx]} alt={`Screenshot ${idx + 1}`} className="lightbox-img" />
+            <img src={images[idx]} alt={`Screenshot ${idx + 1}`} className="lightbox-img" loading="lazy" />
           </div>
         )}
 
@@ -86,10 +87,10 @@ function ProjectImages({ images, label }: { images: string[]; label: string }) {
             className="project-pdf-thumb"
             onClick={() => setLightboxIdx(0)}
             aria-label={`Open ${label} UI PDF`}
-            style={images[1] ? { padding: 0, border: 'none', background: 'transparent', overflow: 'hidden' } : undefined}
+            style={images[1] ? { padding: 0, border: 'none', background: 'transparent', overflow: 'hidden', position: 'relative' } : undefined}
           >
             {images[1] ? (
-              <img src={images[1]} alt={`${label} cover`} style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', borderRadius: '12px', border: '1px solid rgba(255,255,255,0.05)' }} />
+              <Image src={images[1]} alt={`${label} cover`} fill sizes="(max-width: 768px) 100vw, 33vw" style={{ objectFit: 'cover', borderRadius: '12px' }} />
             ) : (
               <>
                 <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -108,8 +109,7 @@ function ProjectImages({ images, label }: { images: string[]; label: string }) {
                 onClick={() => setLightboxIdx(i)}
                 aria-label={`View screenshot ${i + 1}`}
               >
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={src} alt={`${label} screenshot ${i + 1}`} className="project-thumb-img" />
+                <Image src={src} alt={`${label} screenshot ${i + 1}`} className="project-thumb-img" fill sizes="(max-width: 768px) 50vw, 25vw" />
                 {i === 3 && images.length > 4 && (
                   <div className="project-thumb-more">+{images.length - 4}</div>
                 )}
@@ -323,8 +323,7 @@ function MoreProjectItem({ item }: { item: typeof MORE[0] }) {
             <div className="more-project-thumbs">
               {item.images.slice(0, 3).map((src, i) => (
                 <button key={i} className="more-project-thumb" onClick={() => setLightboxIdx(i)} aria-label={`View screenshot ${i + 1}`}>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={src} alt={`Screenshot ${i + 1}`} className="more-project-thumb-img" />
+                  <Image src={src} alt={`Screenshot ${i + 1}`} className="more-project-thumb-img" fill sizes="(max-width: 768px) 33vw, 20vw" />
                   {i === 2 && item.images.length > 3 && (
                     <div className="project-thumb-more">+{item.images.length - 3}</div>
                   )}
