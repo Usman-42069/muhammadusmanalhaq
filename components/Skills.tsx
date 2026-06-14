@@ -49,7 +49,7 @@ const SKILL_GROUPS = [
     skills: [
       { name: 'React',         icon: <SkillIcon src={DI('react','original')}      name="React" /> },
       { name: 'Next.js',       icon: <SkillIcon src={DI('nextjs','original')}     name="Next.js" className="icon-invert" /> },
-      { name: 'Tailwind CSS',  icon: <SkillIcon src={DI('tailwindcss','plain')}   name="Tailwind" /> },
+      { name: 'Tailwind CSS',  icon: <SkillIcon src={DI('tailwindcss','original')}name="Tailwind" /> },
       { name: 'Framer Motion', icon: <SkillIcon src={SI('framer')}                name="Framer" /> },
     ]
   },
@@ -65,6 +65,7 @@ const SKILL_GROUPS = [
     skills: [
       { name: 'Android Studio', icon: <SkillIcon src={DI('androidstudio','plain')} name="AndroidStudio" /> },
       { name: 'Android SDK',    icon: <SkillIcon src={DI('android','plain')}       name="Android" /> },
+      { name: 'Flutter',        icon: <SkillIcon src={DI('flutter','original')}    name="Flutter" /> },
       { name: 'Firebase',       icon: <SkillIcon src={DI('firebase','plain')}      name="Firebase" /> },
       { name: 'Figma',          icon: <SkillIcon src={DI('figma','plain')}         name="Figma" /> },
     ]
@@ -73,7 +74,7 @@ const SKILL_GROUPS = [
     category: 'Databases',
     skills: [
       { name: 'MongoDB',     icon: <SkillIcon src={DI('mongodb','plain')}            name="MongoDB" /> },
-      { name: 'MySQL',       icon: <SkillIcon src={DI('mysql','plain')}              name="MySQL" /> },
+      { name: 'MySQL',       icon: <SkillIcon src={DI('mysql','original')}           name="MySQL" /> },
       { name: 'PostgreSQL',  icon: <SkillIcon src={DI('postgresql','plain')}         name="PostgreSQL" /> },
       { name: 'SQL Server',  icon: <SkillIcon src={DI('microsoftsqlserver','plain')} name="SQL Server" /> },
       { name: 'SQLite',      icon: <SkillIcon src={DI('sqlite','plain')}             name="SQLite" /> },

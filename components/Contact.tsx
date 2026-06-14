@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 const LINKS = [
   {
@@ -77,6 +77,30 @@ const ArrowIcon = () => (
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null)
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setStatus('loading')
+    const formData = new FormData(e.currentTarget)
+    // Replace with the user's provided access key later via environment variables
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_KEY || "YOUR_ACCESS_KEY_HERE")
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      })
+      if (response.ok) {
+        setStatus('success')
+        ;(e.target as HTMLFormElement).reset()
+      } else {
+        setStatus('error')
+      }
+    } catch {
+      setStatus('error')
+    }
+  }
 
   useEffect(() => {
     const items = sectionRef.current?.querySelectorAll('.reveal')
@@ -103,25 +127,38 @@ export default function Contact() {
         </div>
 
         <div className="contact-layout">
-          {/* Intro */}
+          {/* Form Intro & Form */}
           <div className="contact-intro reveal">
-            <p className="contact-body">
+            <p className="contact-body" style={{ marginBottom: '24px' }}>
               I&apos;m open to <span className="text-accent">internships</span>,{' '}
               <span className="text-accent">freelance projects</span>, and{' '}
-              <span className="text-accent">entry-level roles</span> in full-stack development, mobile
-              engineering, or systems/HPC. I respond to every email.
+              <span className="text-accent">entry-level roles</span>. Drop me a message below!
             </p>
-            <a
-              href="mailto:muhammadusmanalhaq@gmail.com"
-              className="btn btn-accent btn-lg"
-              id="contact-email-btn"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                <polyline points="22,6 12,13 2,6"/>
-              </svg>
-              Send me an email
-            </a>
+            
+            <form onSubmit={handleSubmit} className="contact-form glass-card">
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">Name</label>
+                <input type="text" id="name" name="name" required className="form-input" placeholder="John Doe" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">Email</label>
+                <input type="email" id="email" name="email" required className="form-input" placeholder="john@example.com" />
+              </div>
+              <div className="form-group">
+                <label htmlFor="message" className="form-label">Message</label>
+                <textarea id="message" name="message" required className="form-textarea" placeholder="Hello there..." rows={4} />
+              </div>
+              
+              <button type="submit" className="btn btn-accent btn-full" disabled={status === 'loading'} style={{ marginTop: '8px' }}>
+                {status === 'loading' ? 'Sending...' : status === 'success' ? 'Message Sent!' : 'Send Message'}
+                {status === 'idle' && (
+                  <svg className="btn-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                  </svg>
+                )}
+              </button>
+              {status === 'error' && <p className="form-error">Something went wrong. Please try again.</p>}
+            </form>
           </div>
 
           {/* Link cards */}
