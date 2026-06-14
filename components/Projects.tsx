@@ -127,44 +127,44 @@ function ProjectImages({ images, label }: { images: string[]; label: string }) {
 
 /* ── Project data ───────────────────────────────────────────── */
 const POS_IMGS = [
-  '/projects/pos/login.PNG',
-  '/projects/pos/dashboard.PNG',
-  '/projects/pos/POS.PNG',
-  '/projects/pos/Manage Products.PNG',
-  '/projects/pos/Manage Cashiers.png',
-  '/projects/pos/Manage Discounts.png',
-  '/projects/pos/Manage Managers.png',
-  '/projects/pos/Sales Reports.png',
-  '/projects/pos/Inventory Reports.png',
-  '/projects/pos/Cashier Performance.png',
-  '/projects/pos/Discount Reports.png',
-  '/projects/pos/Flop Products.png',
+  '/projects/pos/login.webp',
+  '/projects/pos/dashboard.webp',
+  '/projects/pos/POS.webp',
+  '/projects/pos/Manage Products.webp',
+  '/projects/pos/Manage Cashiers.webp',
+  '/projects/pos/Manage Discounts.webp',
+  '/projects/pos/Manage Managers.webp',
+  '/projects/pos/Sales Reports.webp',
+  '/projects/pos/Inventory Reports.webp',
+  '/projects/pos/Cashier Performance.webp',
+  '/projects/pos/Discount Reports.webp',
+  '/projects/pos/Flop Products.webp',
 ]
 
 const FASTPAY_IMGS = [
-  '/projects/fastpay/authentication.png',
-  '/projects/fastpay/dashboard.png',
-  '/projects/fastpay/send_money.png',
-  '/projects/fastpay/bills_payment.png',
-  '/projects/fastpay/qr_code_slip.png',
-  '/projects/fastpay/transaction_log.png',
-  '/projects/fastpay/new_partition.png',
-  '/projects/fastpay/add_money_dialog.png',
-  '/projects/fastpay/bank_topup.png',
-  '/projects/fastpay/manage_card.png',
-  '/projects/fastpay/raast.png',
-  '/projects/fastpay/mobile_topup.png',
-  '/projects/fastpay/donations.png',
+  '/projects/fastpay/authentication.webp',
+  '/projects/fastpay/dashboard.webp',
+  '/projects/fastpay/send_money.webp',
+  '/projects/fastpay/bills_payment.webp',
+  '/projects/fastpay/qr_code_slip.webp',
+  '/projects/fastpay/transaction_log.webp',
+  '/projects/fastpay/new_partition.webp',
+  '/projects/fastpay/add_money_dialog.webp',
+  '/projects/fastpay/bank_topup.webp',
+  '/projects/fastpay/manage_card.webp',
+  '/projects/fastpay/raast.webp',
+  '/projects/fastpay/mobile_topup.webp',
+  '/projects/fastpay/donations.webp',
 ]
 
-const LISTIT_IMGS = ['/projects/ListIt-UI.pdf', '/projects/list-it-cover.png']
+const LISTIT_IMGS = ['/projects/ListIt-UI.pdf', '/projects/list-it-cover.webp']
 
 const RACE_IMGS = [
-  '/projects/race/screencapture-localhost-8501-2026-06-14-08_30_06.png',
-  '/projects/race/screencapture-localhost-8501-2026-06-14-08_30_35.png',
-  '/projects/race/screencapture-localhost-8501-2026-06-14-08_31_20.png',
-  '/projects/race/screencapture-localhost-8501-2026-06-14-08_32_05.png',
-  '/projects/race/screencapture-localhost-8501-2026-06-14-08_31_45.png',
+  '/projects/race/screencapture-localhost-8501-2026-06-14-08_30_06.webp',
+  '/projects/race/screencapture-localhost-8501-2026-06-14-08_30_35.webp',
+  '/projects/race/screencapture-localhost-8501-2026-06-14-08_31_20.webp',
+  '/projects/race/screencapture-localhost-8501-2026-06-14-08_32_05.webp',
+  '/projects/race/screencapture-localhost-8501-2026-06-14-08_31_45.webp',
 ]
 
 type ProjectData = {
@@ -209,12 +209,12 @@ const PROJECTS: ProjectData[] = [
     tech: ['Next.js 14', 'MongoDB', 'NextAuth.js', 'TMDB API', 'Tailwind', 'Vercel'],
     href: '#',
     images: [
-      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-movies-2026-06-14-07_28_02.png',
-      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-movies-6a05681cb48251208c4a6a46-2026-06-14-07_28_30.png',
-      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-profile-bookings-2026-06-14-07_26_18.png',
-      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-admin-2026-06-14-07_27_03.png',
-      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-admin-halls-2026-06-14-07_27_23.png',
-      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-admin-users-2026-06-14-07_27_41.png',
+      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-movies-2026-06-14-07_28_02.webp',
+      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-movies-6a05681cb48251208c4a6a46-2026-06-14-07_28_30.webp',
+      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-profile-bookings-2026-06-14-07_26_18.webp',
+      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-admin-2026-06-14-07_27_03.webp',
+      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-admin-halls-2026-06-14-07_27_23.webp',
+      '/projects/cinebook/screencapture-cinema-zeta-beryl-vercel-app-admin-users-2026-06-14-07_27_41.webp',
     ],
   },
   {
