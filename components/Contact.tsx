@@ -128,7 +128,7 @@ export default function Contact() {
 
         <div className="contact-layout">
           {/* Form Intro & Form */}
-          <div className="contact-intro reveal">
+          <div className="contact-intro reveal" style={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
             <p className="contact-body" style={{ marginBottom: '24px' }}>
               I&apos;m open to <span className="text-accent">internships</span>,{' '}
               <span className="text-accent">freelance projects</span>, and{' '}
@@ -144,9 +144,9 @@ export default function Contact() {
                 <label htmlFor="email" className="form-label">Email</label>
                 <input type="email" id="email" name="email" required className="form-input" placeholder="john@example.com" />
               </div>
-              <div className="form-group">
+              <div className="form-group" style={{ flex: 1 }}>
                 <label htmlFor="message" className="form-label">Message</label>
-                <textarea id="message" name="message" required className="form-textarea" placeholder="Hello there..." rows={4} />
+                <textarea id="message" name="message" required className="form-textarea" placeholder="Hello there..." />
               </div>
               
               <button type="submit" className="btn btn-accent btn-full" disabled={status === 'loading'} style={{ marginTop: '8px' }}>
